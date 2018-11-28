@@ -1,0 +1,128 @@
+extends layout
+
+block content
+    .navbar-fixed
+      nav
+        .nav-wrapper
+          a.brand-logo(href='#!') Chopper Drive
+          a.sidenav-trigger(href='#', data-target='mobile-demo')
+            i.material-icons menu
+          ul.right.hide-on-med-and-down.modal-trigger
+            li
+              a.modal-trigger(href='/') Regresar
+    ul#mobile-demo.sidenav
+      li
+        a.modal-trigger(href='#modal1') Iniciar Sesion
+      li
+        a(href='badges.html') Components
+      li
+        a(href='collapsible.html') Javascript
+      li
+        a(href='mobile.html') Mobile
+    section.row.container
+      .center-align
+        h3
+          | Registrarse 
+          span.iniciar
+            | o 
+            a(href='/drive/login') iniciar sesión
+      form(method='POST' action='/drive/signup')
+        article.col.s12.l6
+          .input-field.col.s12
+            i.material-icons.prefix accessibility
+            input#name.validate(type='text', name='name')
+            label(for='name') Nombres
+          .input-field.col.s12
+            i.material-icons.prefix accessibility
+            input#last.validate(type='text', name='last')
+            label(for='last') Apellidos
+          .input-field.col.s12
+            i.material-icons.prefix email
+            input#email.validate(type='text', name='email')
+            label(for='email') Correo eléctronico
+          .input-field.col.s12
+            i.material-icons.prefix lock
+            input#pass.validate(type='password', name='pass')
+            label(for='pass') Contraseña
+          .input-field.col.s12
+            i.material-icons.prefix lock
+            input#pass2.validate(type='password', name='pass2')
+            label(for='pass2') Confirmar contraseña
+          p.col.s12.m6
+            label
+              input(name='group1', type='radio', onclick='normal(this);', value='Normal')
+              span Usuario Normal
+          p.col.s12.m6
+            label
+              input(name='group1', type='radio', onclick='premium(this);', value='Premium')
+              span Usuario Premium
+          .row
+            .col.s12
+              input.waves-effect.waves-light.btn.btn-size(type='submit' value='Registrar')
+        article.col.s12.l6
+          #tarjeta
+            h4 Tarjeta de Credito
+            .input-field.col.s12
+              i.material-icons.prefix assignment
+              input#num1.validate(type='text', name='numT')
+              label(for='num1') Numero de tarjeta de credito
+            .input-field.col.s12.m6
+              i.material-icons.prefix lock
+              input#num2.validate(type='text', name='codT')
+              label(for='num2') Cod. Seguridad
+            .input-field.col.s12.m6
+              i.material-icons.prefix date_range
+              input#num3.datepicker(type='text', name='fechaT')
+              label(for='num3') Vencimiento
+            p Pagos
+            p.col.s12.m6
+              label
+                input(name='group2', type='radio' value='Semestral')
+                span Semestral
+            p.col.s12.m6
+              label
+                input(name='group2', type='radio' value='Anual')
+                span Anual
+          img#i-registrar.i-paralax(src='../img/registro.png')
+    footer.page-footer
+      .container
+        .row
+          .col.l6.s12
+            h5.white-text Footer Content
+            p.grey-text.text-lighten-4
+              | You can use rows and columns here to organize your
+              | footer content.
+          .col.l4.offset-l2.s12
+            h5.white-text Links
+            ul
+              li
+                a.grey-text.text-lighten-3(href='#!') Link 1
+              li
+                a.grey-text.text-lighten-3(href='#!') Link 2
+              li
+                a.grey-text.text-lighten-3(href='#!') Link 3
+              li
+                a.grey-text.text-lighten-3(href='#!') Link 4
+      .footer-copyright
+        .container
+          | © 2014 Copyright Text
+          a.grey-text.text-lighten-4.right(href='#!') More Links
+    script.
+      document.addEventListener('DOMContentLoaded', function () {
+      var elems = document.querySelectorAll('.sidenav');
+      var instances = M.Sidenav.init(elems, false);
+      });
+      document.addEventListener('DOMContentLoaded', function () {
+      var elems = document.querySelectorAll('.datepicker');
+      var instances = M.Datepicker.init(elems, false);
+      });
+      function normal(myRadio) {
+      document.getElementById('tarjeta').style.display = 'none';
+      document.getElementById('i-registrar').style.display = 'inline';
+      document.getElementById('i-registrar').style.visibility = 'visible';
+      }
+      function premium(myRadio) {
+      document.getElementById('i-registrar').style.display = 'none';
+      document.getElementById('tarjeta').style.display = 'inline';
+      document.getElementById('tarjeta').style.visibility = 'visible';
+      }

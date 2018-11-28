@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  .navbar-fixed
+    nav
+      .nav-wrapper
+        a.brand-logo(href='#!') Chopper Drive
+        a.sidenav-trigger(href='#', data-target='mobile-demo')
+          i.material-icons menu
+  .row
+    .col.card(style='margin: 4em; padding-bottom: 2.5em')
+      h1 &iexcl;Al parecer ocurrio un error!
+      ul(style='font-size: 1.25em')
+        li
+          p #{JSON.parse(session.user).error}
+        li
+          p#url(style='display: none') #{JSON.parse(session.user).pagina}
+      a.waves-effect.waves-light.btn( onClick='mostrar()' style='background-color: #071e3d; margin-top: 1em') Volver
+    br
+    br
+    .col
+      img(src='../img/errorc.png' alt='error' style='width: 36em')
+  script.
+    function mostrar(){
+      var text = document.getElementById("url") 
+      console.log(text.textContent);
+      location.href ="/drive/" + text.textContent;
+    }

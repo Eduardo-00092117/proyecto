@@ -1,0 +1,182 @@
+extends layout
+
+block content
+  .navbar-fixed
+    nav
+      .nav-wrapper
+        a.brand-logo(href='#!') Chopper Drive
+        a.sidenav-trigger(href='#' data-target='mobile-demo')
+          i.material-icons menu
+        ul.right.hide-on-med-and-down.modal-trigger
+          li
+            a.modal-trigger(href='#modal1') Iniciar Sesion
+          li
+            a(href='/drive/registrar') Registrarse
+  ul#mobile-demo.sidenav
+    li
+      a.modal-trigger(href='#modal1') Iniciar Sesion
+    li
+      a(href='badges.html') Components
+    li
+      a(href='collapsible.html') Javascript
+    li
+      a(href='mobile.html') Mobile
+  // Modal Structure
+  #modal1.modal
+    .modal-footer
+      a.modal-close.waves-effect.waves-green.btn-flat(href='#!') X
+    .modal-content
+      h4.center-align Iniciar Sesi&oacute;n
+      .center-align
+        i.large.material-icons account_circle
+      .row.container
+        form.col.s12(method='POST' action='/drive/signin')
+          .row
+            .input-field.col.s12
+              i.material-icons.prefix email
+              input#user.validate(type='text', name='email')
+              label(for='user') Usuario
+          .row
+            .input-field.col.s12
+              i.material-icons.prefix lock
+              input#pass.validate(type='password', name='pass')
+              label(for='pass') Contrase&ntilde;a
+          .center-align
+            input.waves-effect.waves-light.btn.btn-size(type='submit' value='Iniciar')
+            br
+            br
+            li.divider
+            br
+            a(href='/drive/pedirCorreo') &iquest;Ha olvidado su contrase&ntilde;a?
+  header.slider
+    ul.slides
+      li
+        img(src='img/banner1.jpg')
+        // random image
+        .caption.center-align
+          h3 Chopper Drive
+          h5.light.grey-text.text-lighten-3 Gestor donde puedes guardar toda clase de archivos
+      li
+        img(src='img/banner2.jpg')
+        // random image
+        .caption.left-align
+          h3 Videos, musica y mucho m&aacute;s
+          h5.light.grey-text.text-lighten-3
+            | Ofrece una cantidad de espacio suficiente, para tu
+            | musica, videos y mucho m&aacute;s
+      li
+        img(src='img/banner3.jpg')
+        // random image
+        .caption.right-align
+          h3 &iexcl;Dise&ntilde;o increible!
+          h5.light.grey-text.text-lighten-3
+            | Ofrece dise&ntilde;o y funcionalidades faciles y sencillas de
+            | usar
+      li
+        img(src='img/banner4.jpg')
+        // random image
+        .caption.center-align
+          h3 La nube
+          h5.light.grey-text.text-lighten-3 El mejor servicio en la nube, gratuido o paga.
+  br
+  .row
+    .col.s12.m6.l4
+      .card
+        .card-image
+          img(src='img/card1.png')
+        .card-content
+          p
+            | I am a very simple card. I am good at containing small bits of information.
+            | I am convenient because I require little markup to use effectively.
+    .col.s12.m6.l4
+      .card
+        .card-image
+          img(src='img/card2.jpg')
+        .card-content
+          p
+            | I am a very simple card. I am good at containing small bits of information.
+            | I am convenient because I require little markup to use effectively.
+    .col.s12.m6.l4
+      .card
+        .card-image
+          img(src='img/card3.jpg')
+          span.card-title Card Title
+        .card-content
+          p
+            | I am a very simple card. I am good at containing small bits of information.
+            | I am convenient because I require little markup to use effectively.
+  .parallax-container
+    .parallax
+      img(src='img/paralax1.jpg')
+  .section.white
+    .row.container
+      .col.s12.m4
+        img.i-paralax(src='img/img1.jpg')
+      .col.s12.m8
+        h4 Formatos de archivos
+        p
+          | El gestor de archivo tiene la capacidad de subir cualquier tipo de archivo
+  .parallax-container
+    .parallax
+      img(src='img/paralax2.jpg')
+  .section.white
+    .row.container
+      .col.s12.m8
+        h4 Usuarios
+        .row
+          .col.s12.m12.l6
+            h5 Usuario Normal
+            p
+              | Contar&aacute; con un almacenamiento limitado a 2 GB, en el cual
+              | podr&aacute; guardar cualquier tipo de archivo que se dese&eacute;.
+            a(href='!#') Ver m&aacute;s&gt;&gt;
+          .col.s12.m12.l6
+            h5 Usuario Premium
+            p
+              | Contar&aacute; con almacenamiento amplio para poder guardar archivos
+              | de mayor tama&ntilde;o, en el cual el usuario se dar&aacute; el gusto de subir cualquier archivo.
+            a(href='!#') Ver m&aacute;s&gt;&gt;
+      .col.s12.m4
+        img.i-paralax(src='img/img2.png')
+  footer.page-footer
+    .container
+      .row
+        .col.l6.s12
+          h5.white-text Footer Content
+          p.grey-text.text-lighten-4
+            | You can use rows and columns here to organize your
+            | footer content.
+        .col.l4.offset-l2.s12
+          h5.white-text Links
+          ul
+            li
+              a.grey-text.text-lighten-3(href='#!') Link 1
+            li
+              a.grey-text.text-lighten-3(href='#!') Link 2
+            li
+              a.grey-text.text-lighten-3(href='#!') Link 3
+            li
+              a.grey-text.text-lighten-3(href='#!') Link 4
+    .footer-copyright
+      .container
+        | &copy; 2014 Copyright Text
+        a.grey-text.text-lighten-4.right(href='#!') More Links
+  script.
+    document.addEventListener('DOMContentLoaded', function () {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, false);
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+    var elems = document.querySelectorAll('.slider');
+    var instances = M.Slider.init(elems, {
+    indicators: false
+    });
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems, false);
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+    var elems = document.querySelectorAll('.parallax');
+    var instances = M.Parallax.init(elems, false);
+    });

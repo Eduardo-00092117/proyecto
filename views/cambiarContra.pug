@@ -1,0 +1,28 @@
+extends layout
+
+block content
+    main
+    nav
+        .nav-wrapper
+        a.brand-logo(href='#!') Chopper Drive
+    section
+        article.row
+        .container.center
+            .col.s12.m12
+            h4  Solicitar contrase&ntilde;a
+            i.large.material-icons account_circle
+            .col.s12
+            p Introduce la nueva contrase&ntilde;a
+        article.row.container
+        form.col.s12(action='', method='POST')
+            .row
+            .container.center
+                .input-field.col.s12
+                    i.large.material-icons.prefix lock
+                    label.active(for='pass') Nueva contrase&ntilde;a
+                    input#first_name.validate(type='text', name='pass')
+                .input-field.col.s12
+                    i.large.material-icons.prefix lock
+                    label.active(for='pass2') Confirma nueva contrase&ntilde;a
+                    input#first_name.validate(type='text', name='pass2')
+                a.waves-effect.waves-light.btn.btn-color Cambiar contraseña

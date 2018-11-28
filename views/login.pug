@@ -1,0 +1,81 @@
+extends layout
+
+block content
+  .navbar-fixed
+    nav
+      .nav-wrapper
+        a.brand-logo(href='#!') Chopper Drive
+        a.sidenav-trigger(href='#', data-target='mobile-demo')
+          i.material-icons menu
+        ul.right.hide-on-med-and-down.modal-trigger
+          li
+            a.modal-trigger(href='/') Regresar
+  ul#mobile-demo.sidenav
+    li
+      a.modal-trigger(href='#modal1') Iniciar Sesion
+    li
+      a(href='badges.html') Components
+    li
+      a(href='collapsible.html') Javascript
+    li
+      a(href='mobile.html') Mobile
+  h4.center-align Iniciar Sesi&oacute;n
+  .center-align
+    i.large.material-icons account_circle
+  .row.container
+    form.col.s12(method='POST' action='/drive/signin')
+      .row
+        .input-field.col.s12
+          i.material-icons.prefix email
+          input#user.validate(type='text', name='email')
+          label(for='user') Usuario
+      .row
+        .input-field.col.s12
+          i.material-icons.prefix lock
+          input#pass.validate(type='password', name='pass')
+          label(for='pass') Contrase&ntilde;a
+      .center-align
+        input.waves-effect.waves-light.btn.btn-size(type='submit' value='Iniciar')  
+        br
+        br
+        li.divider
+        br
+        a(href='!#') &iquest;Ha olvidado su contrase&ntilde;a?
+  footer.page-footer
+    .container
+      .row
+        .col.l6.s12
+          h5.white-text Footer Content
+          p.grey-text.text-lighten-4
+            | You can use rows and columns here to organize your
+            | footer content.
+        .col.l4.offset-l2.s12
+          h5.white-text Links
+          ul
+            li
+              a.grey-text.text-lighten-3(href='#!') Link 1
+            li
+              a.grey-text.text-lighten-3(href='#!') Link 2
+            li
+              a.grey-text.text-lighten-3(href='#!') Link 3
+            li
+              a.grey-text.text-lighten-3(href='#!') Link 4
+    .footer-copyright
+      .container
+        | &copy; 2014 Copyright Text
+        a.grey-text.text-lighten-4.right(href='#!') More Links
+  script.
+    document.addEventListener('DOMContentLoaded', function () {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, false);
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+    var elems = document.querySelectorAll('.datepicker');
+    var instances = M.Datepicker.init(elems, false);
+    });
+    function normal(myRadio) {
+    document.getElementById('tarjeta').style.visibility = 'hidden';
+    }
+    function premium(myRadio) {
+    document.getElementById('tarjeta').style.visibility = 'visible';
+    }
