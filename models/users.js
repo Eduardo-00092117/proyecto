@@ -44,12 +44,37 @@ UserSchema.pre('save', function (next) {
         user.pass = hash;
         next();
     })
+});
 
+UserSchema.pre('save', function (next) {
+    var user = this;
     bcrypt.hash(user.numTarjeta, 10, function (err, hash) {
         if (err) {
             return next(err);
         }
         user.numTarjeta = hash;
+        next();
+    })
+});
+
+UserSchema.pre('save', function (next) {
+    var user = this;
+    bcrypt.hash(user.codSeguridad, 10, function (err, hash) {
+        if (err) {
+            return next(err);
+        }
+        user.codSeguridad = hash;
+        next();
+    })
+});
+
+UserSchema.pre('save', function (next) {
+    var user = this;
+    bcrypt.hash(user.fechaVencimiento, 10, function (err, hash) {
+        if (err) {
+            return next(err);
+        }
+        user.fechaVencimiento = hash;
         next();
     })
 });
